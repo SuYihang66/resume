@@ -1,4 +1,5 @@
 private/
+content/
 node_modules/
 package.json
 package-lock.json
