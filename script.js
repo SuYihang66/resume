@@ -24,7 +24,7 @@
 
   if (isDirectLink) {
     setVersion(hashVersion);
-    if (versionNav) versionNav.style.display = 'none';
+    if (versionNav) versionNav.classList.add('hidden');
   } else {
     const savedVersion = localStorage.getItem('resumeVersion') || 'tech-detail';
     setVersion(savedVersion);
