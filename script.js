@@ -2,6 +2,7 @@
   'use strict';
 
   const html = document.documentElement;
+  const VALID_VERSIONS = ['tech-detail', 'tech-brief', 'soe-detail', 'soe-brief'];
 
   // ── Theme Toggle ──
   const themeToggle = document.getElementById('theme-toggle');
@@ -15,15 +16,32 @@
     localStorage.setItem('theme', next);
   });
 
-  // ── Version Switching ──
+  // ── Version Routing ──
+  const versionNav = document.querySelector('.version-nav');
   const versionBtns = document.querySelectorAll('.version-btn');
-  const savedVersion = localStorage.getItem('resumeVersion') || 'tech-detail';
-  setVersion(savedVersion);
+  const hashVersion = location.hash.replace('#', '');
+  const isDirectLink = VALID_VERSIONS.includes(hashVersion);
+
+  if (isDirectLink) {
+    setVersion(hashVersion);
+    if (versionNav) versionNav.style.display = 'none';
+  } else {
+    const savedVersion = localStorage.getItem('resumeVersion') || 'tech-detail';
+    setVersion(savedVersion);
+  }
 
   versionBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       setVersion(btn.dataset.target);
+      history.replaceState(null, '', '#' + btn.dataset.target);
     });
+  });
+
+  window.addEventListener('hashchange', () => {
+    const v = location.hash.replace('#', '');
+    if (VALID_VERSIONS.includes(v)) {
+      setVersion(v);
+    }
   });
 
   function setVersion(version) {
