@@ -1,0 +1,10 @@
+node_modules/
+pdf/
+content/
+.DS_Store
+*.log
+苏一杭_1.pdf
+简历写作说明与面试准备.md
+generate-pdf.js
+package.json
+package-lock.json
