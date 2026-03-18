@@ -121,7 +121,7 @@
                 <li><strong>评判体系设计：</strong>针对ECPM三类盲区设计四维评分标准（上下文过滤→画像匹配→新奇性→未来兴趣探索），维度间形成"底线过滤→基础匹配→增量探索"的层次结构；建立LLM蒸馏（105万条）+ 人工标注（7万条）的协同数据生产体系</li>
                 <li><strong>问题驱动的四版本迭代：</strong>V1发现List-wise位置偏置（前4位系统性低估）→V2 Point-wise独立打分消偏→V3引入CoT推理链与知识增强，PointAcc提升至0.64但PairAcc仅0.42，触及SFT天花板（记住规则但不理解偏好）→V4引入1.2万条人工偏好数据，通过GRPO强化学习实现偏好对齐</li>
                 <li><strong>GRPO多维奖励函数：</strong>设计融合Pointwise Accuracy（单点准确）+ Pairwise Accuracy（排序准确）+ 格式合规的三维奖励函数（总分3.0），配合程度词定义消除"有一定相关性"等模糊歧义词</li>
-                <li><strong>核心成果：</strong>V4模型PointAcc <em>0.91</em>、PairAcc <em>0.63</em>、完全匹配率 <em>31.7%</em>，全面超越DeepSeek-R1 Teacher模型（PointAcc 0.60），验证了垂直领域<em>"小模型 + RL偏好对齐 > 通用大模型"</em>的技术路线</li>
+                <li><strong>核心成果：</strong>V4模型PointAcc <em>0.91</em>、PairAcc <em>0.63</em>、完全匹配率 <em>31.7%</em>，在当前评测集上高于DeepSeek-R1 Teacher模型（PointAcc 0.60），并在该垂直场景中观察到<em>"小模型 + RL偏好对齐"</em>的显著优势</li>
               </ul>
             </div>
 
@@ -139,7 +139,7 @@
 
             <div class="r-project">
               <h3 class="r-project__title">DiffuReason — 融合隐式推理与生成式精炼的序列推荐</h3>
-              <p class="r-project__desc">参与提出"Think-then-Diffuse"统一框架，首次将隐式链式推理（Latent CoT）、扩散模型生成式精炼和端到端GRPO强化学习对齐融合于一体，用于序列推荐场景。解决现有方法的推理噪声累积、两阶段优化断裂、MSE与排序目标错位三大核心问题。</p>
+              <p class="r-project__desc">参与提出"Think-then-Diffuse"统一框架，将隐式链式推理（Latent CoT）、扩散模型生成式精炼和端到端GRPO强化学习对齐融合于一体，用于序列推荐场景。针对现有方法的推理噪声累积、两阶段优化断裂、MSE与排序目标错位三大问题进行系统优化。</p>
               <ul class="r-list">
                 <li><strong>Latent Reasoning：</strong>引入Thinking Tokens机制模拟System 2"慢思考"，通过2层Transformer Decoder多步自回归推理挖掘用户行为序列中的深层依赖，Attention Pooling聚合为条件向量引导后续生成</li>
                 <li><strong>Diffusion Refinement：</strong>将推理结果视为概率条件而非确定性输出，以最后一个Thinking Token暖启动扩散轨迹，经16步cosine schedule去噪输出锚点μ（主预测）+ 标准差σ（不确定性估计），采样G个随机变体覆盖多元用户意图</li>
@@ -253,7 +253,7 @@
               <h3 class="r-project__title">LLM as Judge — GPR广告推荐奖励信号优化</h3>
               <ul class="r-list">
                 <li>针对GPR模型RL训练中ECPM奖励信号的盲区（上下文错配/画像冲突/兴趣固化），设计四维LLM评判体系，建立105万蒸馏+7万人工标注的协同数据生产体系</li>
-                <li>完成四版本问题驱动迭代（List-wise位置偏置→Point-wise消偏→CoT知识增强触及SFT天花板→<strong>GRPO偏好对齐</strong>）；设计Pointwise+Pairwise+格式合规三维奖励函数，V4模型PointAcc <em>0.91</em>、完全匹配率 <em>31.7%</em>，全面超越DeepSeek-R1 Teacher</li>
+                <li>完成四版本问题驱动迭代（List-wise位置偏置→Point-wise消偏→CoT知识增强触及SFT天花板→<strong>GRPO偏好对齐</strong>）；设计Pointwise+Pairwise+格式合规三维奖励函数，V4模型PointAcc <em>0.91</em>、完全匹配率 <em>31.7%</em>，在当前评测集关键指标上高于DeepSeek-R1 Teacher</li>
               </ul>
             </div>
 
@@ -268,7 +268,7 @@
             <div class="r-project r-project--compact">
               <h3 class="r-project__title">DiffuReason — 融合隐式推理与生成式精炼的序列推荐 [论文]</h3>
               <ul class="r-list">
-                <li>提出Think-then-Diffuse框架，融合Latent CoT推理 + 扩散模型概率精炼 + 端到端GRPO对齐（连续隐空间适配）；模型无关设计跨3种异构骨干均有效，HSTU <em>Recall@5 +46.41%</em>；微信视频号20%流量在线 <em>GMV +0.79%</em></li>
+                <li>参与Think-then-Diffuse框架研发，负责隐式推理与扩散精炼模块联调及实验验证（Latent CoT + 扩散概率精炼 + 端到端GRPO对齐）；模型无关设计跨3种异构骨干均有效，HSTU <em>Recall@5 +46.41%</em>；微信视频号20%流量在线 <em>GMV +0.79%</em></li>
               </ul>
             </div>
           </div>
@@ -413,7 +413,7 @@
                 <li><strong>方案设计与实现：</strong>协助设计"Think-then-Diffuse"技术框架，实现隐式推理与生成式精炼的有机融合，完成多组件模块的端到端联调</li>
                 <li><strong>多平台验证：</strong>在4个公开数据集和3种异构模型架构上完成全面实验验证，证明方法的通用性与鲁棒性</li>
                 <li><strong>工业级部署：</strong>部署至微信视频号推荐场景，20%生产流量A/B测试，<em>GMV +0.79%</em>，广告收入 +1.15%</li>
-                <li><strong>成果产出：</strong>以核心成员身份参与发表学术论文一篇，验证了研究方法在大规模工业环境下的实际有效性</li>
+                <li><strong>成果产出：</strong>以核心成员身份参与发表学术论文一篇，并在大规模工业环境中完成线上效果验证</li>
               </ul>
             </div>
           </div>
