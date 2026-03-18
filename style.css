@@ -763,6 +763,8 @@ ul { list-style: none; }
     border-left: 1.5pt solid #93c5fd;
     margin-bottom: 7px;
     padding-left: 8px;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
   }
   .r-project__title {
     font-size: 8.5pt;
@@ -788,7 +790,7 @@ ul { list-style: none; }
   .r-list { gap: 2px; }
   .r-list li {
     font-size: 8pt;
-    line-height: 1.5;
+    line-height: 1.48;
     color: #374151;
     padding-left: 9px;
   }
@@ -833,27 +835,27 @@ ul { list-style: none; }
   .resume--brief .r-header__contact { font-size: 7.5pt; gap: 10px; }
   .resume--brief .r-header__photo { width: 60px; height: 78px; }
 
-  .resume--brief .r-section { padding: 4px 0; }
+  .resume--brief .r-section { padding: 4.5px 0; }
   .resume--brief .r-section__title { font-size: 8.5pt; margin-bottom: 3px; padding-bottom: 2px; }
 
-  .resume--brief .r-summary { font-size: 7.5pt; line-height: 1.5; }
+  .resume--brief .r-summary { font-size: 7.8pt; line-height: 1.5; }
 
-  .resume--brief .r-edu--compact .r-edu__item { padding: 2px 0; font-size: 7.5pt; }
+  .resume--brief .r-edu--compact .r-edu__item { padding: 2px 0; font-size: 7.7pt; }
   .resume--brief .r-edu--compact .r-edu__left strong { font-size: 8pt; }
-  .resume--brief .r-compact-skills { font-size: 7.5pt; line-height: 1.45; }
+  .resume--brief .r-compact-skills { font-size: 7.8pt; line-height: 1.48; }
 
   .resume--brief .r-exp__header { margin-bottom: 3px; }
-  .resume--brief .r-exp__header strong { font-size: 8pt; }
-  .resume--brief .r-exp__role { font-size: 7pt; }
+  .resume--brief .r-exp__header strong { font-size: 8.2pt; }
+  .resume--brief .r-exp__role { font-size: 7.2pt; }
 
   .resume--brief .r-project--compact { margin-bottom: 3px; padding-left: 6px; }
-  .resume--brief .r-project__title { font-size: 7.5pt; margin-bottom: 2px; }
+  .resume--brief .r-project__title { font-size: 7.8pt; margin-bottom: 2px; }
 
   .resume--brief .r-list { gap: 1px; }
-  .resume--brief .r-list li { font-size: 7pt; line-height: 1.45; padding-left: 7px; }
+  .resume--brief .r-list li { font-size: 7.4pt; line-height: 1.48; padding-left: 7px; }
   .resume--brief .r-list li::before { top: 5px; width: 2.5px; height: 2.5px; }
 
-  .resume--brief .r-pub-inline { font-size: 7pt; line-height: 1.4; }
+  .resume--brief .r-pub-inline { font-size: 7.3pt; line-height: 1.45; }
   .resume--brief .r-badge { font-size: 5pt; padding: 0 3px; }
-  .resume--brief .r-date { font-size: 7pt; }
+  .resume--brief .r-date { font-size: 7.2pt; }
 }
